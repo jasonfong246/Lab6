@@ -439,11 +439,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1097732566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16dc716d71fd442488d758a50f4a4255, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a137290e6e5f924294cbf6b38bd55fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  playerToMove: {fileID: 1097732566}
 --- !u!1 &1365126318
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd60834bb89a1f41917b6e94a9469d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftcontrol: {fileID: 1097732572}
 --- !u!1 &2122854460
 GameObject:
   m_ObjectHideFlags: 0
