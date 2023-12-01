@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace EndlessRunner
@@ -13,11 +11,19 @@ namespace EndlessRunner
         {
             isLeft = true;
         }
+        public void ToggleStop()
+        {
+            isLeft = false;
+        }
 
         private void Update()
         {
             if (isLeft)
             {
+                if (transform.position.x <= 0)
+                {
+                    ToggleStop();
+                }   
                 transform.Translate(Vector3.left * 5f * Time.deltaTime);
             }
         }
