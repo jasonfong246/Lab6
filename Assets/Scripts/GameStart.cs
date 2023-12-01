@@ -9,12 +9,13 @@ namespace EndlessRunner
     public class GameStart : MonoBehaviour
     {
         private PlayerControl play;
-        private LeftControl left;
+        private LeftControlHandler left;
+        [SerializeField] private LeftControl leftcontrol;
         // Start is called before the first frame update
         void Awake()
         {
             play = new PlayerControl();
-            left = new LeftControl(play.Player.Left);
+            left = new LeftControlHandler(play.Player.Left, this.leftcontrol);
         }
 
         // Update is called once per frame
