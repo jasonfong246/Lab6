@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MovementScript : MonoBehaviour
+namespace EndlessRunner
 {
-       // Start is called before the first frame update
-    public float moveSpeed = 5f;
-    public GameObject playerToMove;
-    void Start()
+    public class MovementScript : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        // Start is called before the first frame update
+        public float moveSpeed = 5f;
+        public GameObject playerToMove;
+        // Update is called once per frame
+        void Update()
+        {
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        }
     }
 }
