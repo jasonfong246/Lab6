@@ -17,8 +17,8 @@ namespace EndlessRunner
         void Awake()
         {
             play = new PlayerControl();
-            left = new LeftControlHandler(play.Player.Left, this.leftcontrol);
-            right = new RightControlHandler(play.Player.Right, this.rightcontrol);
+            left = new LeftControlHandler(play.Player.Left, this.leftcontrol,this.rightcontrol);
+            right = new RightControlHandler(play.Player.Right, this.rightcontrol,this.leftcontrol);
         }
 
         // Update is called once per frame

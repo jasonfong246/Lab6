@@ -13,9 +13,11 @@ namespace EndlessRunner
         public float moveSpeed = 5f;
         public GameObject playerToMove;
         private RightControl rightcontrol;
-        public RightControlHandler(InputAction RightAction, RightControl rightcont)
+        private LeftControl leftcontrol;
+        public RightControlHandler(InputAction RightAction, RightControl rightcont, LeftControl leftcont)
         {
             this.rightcontrol = rightcont;
+            this.leftcontrol = leftcont;
             RightAction.performed += OnMove_performed;
             RightAction.Enable();
         }
@@ -23,6 +25,7 @@ namespace EndlessRunner
         private void OnMove_performed(InputAction.CallbackContext obj)
         {
             this.rightcontrol.ToggleRight();
+            this.leftcontrol.ToggleStop();
         }
     }
 }
