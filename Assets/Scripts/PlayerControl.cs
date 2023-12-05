@@ -46,6 +46,15 @@ namespace EndlessRunner.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""75f29a7f-554d-4bac-bd2b-d19d75a44b22"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -74,7 +83,7 @@ namespace EndlessRunner.Inputs
                 {
                     ""name"": """",
                     ""id"": ""ce397ba3-787d-4a47-9fe2-bfb927f80e59"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -92,6 +101,28 @@ namespace EndlessRunner.Inputs
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d8aa344-1b07-4dfe-bec7-b907f0ea7305"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b3de51a0-859b-44db-a5d2-1aa4417bfe93"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -102,6 +133,7 @@ namespace EndlessRunner.Inputs
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Left = m_Player.FindAction("Left", throwIfNotFound: true);
             m_Player_Right = m_Player.FindAction("Right", throwIfNotFound: true);
+            m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -165,12 +197,14 @@ namespace EndlessRunner.Inputs
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Left;
         private readonly InputAction m_Player_Right;
+        private readonly InputAction m_Player_Jump;
         public struct PlayerActions
         {
             private @PlayerControl m_Wrapper;
             public PlayerActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
             public InputAction @Left => m_Wrapper.m_Player_Left;
             public InputAction @Right => m_Wrapper.m_Player_Right;
+            public InputAction @Jump => m_Wrapper.m_Player_Jump;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -186,6 +220,9 @@ namespace EndlessRunner.Inputs
                 @Right.started += instance.OnRight;
                 @Right.performed += instance.OnRight;
                 @Right.canceled += instance.OnRight;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -196,6 +233,9 @@ namespace EndlessRunner.Inputs
                 @Right.started -= instance.OnRight;
                 @Right.performed -= instance.OnRight;
                 @Right.canceled -= instance.OnRight;
+                @Jump.started -= instance.OnJump;
+                @Jump.performed -= instance.OnJump;
+                @Jump.canceled -= instance.OnJump;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -217,6 +257,7 @@ namespace EndlessRunner.Inputs
         {
             void OnLeft(InputAction.CallbackContext context);
             void OnRight(InputAction.CallbackContext context);
+            void OnJump(InputAction.CallbackContext context);
         }
     }
 }
