@@ -20072,8 +20072,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1365126319}
-  - component: {fileID: 1365126320}
   - component: {fileID: 1365126321}
+  - component: {fileID: 1365126322}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -20096,21 +20096,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1365126320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1365126318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd60834bb89a1f41917b6e94a9469d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftcontrol: {fileID: 1097732572}
-  rightcontrol: {fileID: 1097732573}
-  jumpcontrol: {fileID: 1097732576}
 --- !u!114 &1365126321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20129,6 +20114,21 @@ MonoBehaviour:
   - {fileID: 694300365}
   zPos: 64
   secNum: 0
+--- !u!114 &1365126322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365126318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91efa48b06a596e4488df6dffb41396f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftcontrol: {fileID: 1097732572}
+  rightcontrol: {fileID: 1097732573}
+  jumpcontrol: {fileID: 1097732576}
 --- !u!1001 &1368682080
 PrefabInstance:
   m_ObjectHideFlags: 0
