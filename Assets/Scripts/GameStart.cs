@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EndlessRunner.Inputs;
-
+using TMPro;
 
 namespace EndlessRunner
 {
@@ -22,12 +22,6 @@ namespace EndlessRunner
             left = new LeftControlHandler(play.Player.Left, this.leftcontrol,this.rightcontrol);
             right = new RightControlHandler(play.Player.Right, this.rightcontrol,this.leftcontrol);
             jump = new JumpControlHandler(play.Player.Jump, this.jumpcontrol);
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
 
         }
 

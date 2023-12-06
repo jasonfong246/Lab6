@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EndlessRunner;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CollisionDetector : MonoBehaviour
 {
@@ -17,10 +19,13 @@ public class CollisionDetector : MonoBehaviour
             player.GetComponent<MovementScript>().enabled = false;
             player.GetComponent<JumpControl>().enabled = false;
             characterModel.GetComponent<Animator>().Play("Stumble Backwards");
-            
+            StartCoroutine(EndGame());
         }
     }
-    void update(){
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(0);
 
     }
 }

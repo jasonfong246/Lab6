@@ -1,4 +1,0 @@
-repository "Lab 6 (endless runner)@DaWei02@cloud"
-  path "/"
-    br "/main"
-    co "/main"
